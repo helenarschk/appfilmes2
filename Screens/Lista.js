@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, StyleSheet, Text, View, Image, TouchableOpacity, Alert, Linking } from 'react-native';
+import { FlatList, StyleSheet, Text, View, Image, TouchableOpacity, Alert, Linking, Button } from 'react-native';
 
 const filmes = [
   {
@@ -56,126 +56,88 @@ const filmes = [
     link: 'https://letterboxd.com/film/monty-python-and-the-holy-grail/',
     sinopse: 'O filme acompanha o Rei Arthur em 932 d.C.. Junto com seus cavaleiros, ele parte em uma jornada surreal atrás do Santo Graal, enfrentando desafios absurdos e inimigos patéticos pelo caminho.',
   },
-]
+];
+
+const falar = () => {
+  Alert.alert('Texto em voz', 'Função de leitura em desenvolvimento.');
+};
 
 export default function Lista({ navigation }) {
-    const criaItem = ({ item }) => (
-        <TouchableOpacity
-            style={styles.listaItem}
-            onPress={() => 
-                navigation.navigate('Detalhes', { filme: item })}
-        >
-            <Image source={item.imagem}
-                   style={styles.listaImagem} />
+  const criaItem = ({ item }) => (
+    <TouchableOpacity
+      style={styles.listaItem}
+      onPress={() => navigation.navigate('Detalhes', { filme: item })}
+    >
+      <Image source={item.imagem} style={styles.listaImagem} />
 
-            <View style={styles.listaDetalhes}>
-                <Text style={styles.textoForte}>Cód:  <Text style={styles.textoNormal}>{item.id}</Text></Text>
-                <Text style={styles.textoForte}>Nome:  <Text style={styles.textoNormal}>{item.nome}</Text></Text>
-                <Text style={styles.textoForte}>Ano:  <Text style={styles.textoNormal}>{item.ano}</Text></Text>
-                <Text style={styles.textoForte}>Gênero:  <Text style={styles.textoNormal}>{item.genero}</Text></Text>
-            </View>
-        </TouchableOpacity>
-    )
-        return (
-            <View style={styles.listaContainer}>
-            <FlatList
-            data={filmes}
-            renderItem={criaItem}
-            keyExtractor={item => item.id.toString()}
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.conteudoFlatList}
-            />
-            </View>
-        )
+      <View style={styles.listaDetalhes}>
+        <Text style={styles.textoForte}>Cód: <Text style={styles.textoNormal}>{item.id}</Text></Text>
+        <Text style={styles.textoForte}>Nome: <Text style={styles.textoNormal}>{item.nome}</Text></Text>
+        <Text style={styles.textoForte}>Ano: <Text style={styles.textoNormal}>{item.ano}</Text></Text>
+        <Text style={styles.textoForte}>Gênero: <Text style={styles.textoNormal}>{item.genero}</Text></Text>
+      </View>
+    </TouchableOpacity>
+  );
+
+  return (
+    <View style={styles.listaContainer}>
+      <FlatList
+        data={filmes}
+        renderItem={criaItem}
+        keyExtractor={(item) => item.id.toString()}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.conteudoFlatList}
+      />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-
-
   listaContainer: {
-
     flex: 1,
-    justifyContent: 'center'
-
+    justifyContent: 'center',
   },
-
 
   conteudoFlatList: {
-
     paddingHorizontal: 15,
-
     alignItems: 'center',
-    flexGrow: 0
-
+    flexGrow: 0,
   },
-
 
   listaItem: {
-
     backgroundColor: '#e7dcf1',
-
     marginRight: 15,
-
     padding: 15,
-
     borderRadius: 15,
-
     width: 240,
-
     height: 360,
-
     flexDirection: 'column',
-
     alignItems: 'center',
-
-    elevation: 3
-
+    elevation: 3,
   },
-
 
   listaImagem: {
-
     width: 150,
-
     height: 220,
-
     borderRadius: 8,
-
-    marginBottom: 15
-
+    marginBottom: 15,
   },
-
 
   listaDetalhes: {
-
     width: '100%',
-
-    alignItems: 'flex-start'
-
+    alignItems: 'flex-start',
   },
-
 
   textoForte: {
-
     fontWeight: 'bold',
-
     fontSize: 14,
-
     color: '#1f0d31',
-
-    marginBottom: 2
-
+    marginBottom: 2,
   },
 
-
   textoNormal: {
-
     fontWeight: 'normal',
-
     color: '#381e52',
-
-  }
-
-
+  },
 });

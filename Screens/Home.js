@@ -1,4 +1,42 @@
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import Info from './Info';
+
+const Tab = createBottomTabNavigator();
+
+export default function Home({ navigation }) {
+    return(
+        <NavigationContainer>
+          <Tab.Navigator
+            initialRouteName="Home"
+            screenOptions={({route}) => ({
+            tabBarActiveTintColor: '#673ab7',
+            tabBarInactiveTintColor: '#555',
+            headerStyle:{
+              backgroundColor: '#673ab7',
+            },
+            headerTintColor: '#fff',
+            headerTitleAlign: 'center',
+          >
+            <Tab.Screen
+              name="Home"
+              component={Home}
+              options={{
+              title: 'Início',
+              tabBarLabel: 'Início',
+          }}
+          />
+          <Tab.Screen
+              name="Info"
+              component={Info}
+              options={{
+              title: 'Informações',
+              tabBarLabel: 'Informações',
+          }}
+        />
+          </Tab.Navigator>
+        </NavigationContainer>
 
 export default function Home({ navigation }) {
     return(

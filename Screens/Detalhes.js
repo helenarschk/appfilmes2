@@ -1,90 +1,62 @@
 import React from 'react';
-
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  Linking
-} from 'react-native';
-
+import { StyleSheet, Text, View, Image, TouchableOpacity, Linking, Button } from 'react-native';
+import * as Speech from 'expo-speech';
 
 export default function Detalhes({ route, navigation }) {
-
-
   const { filme } = route.params;
 
+  const lerDetalhes = () => { 
+
+    const texto = `
+    ${filme.nome}.
+    Ano: ${filme.ano}.
+    Gênero: ${filme.genero}.
+    Sinopse: ${filme.sinopse}.
+  `;
+
+    Speech.speak(texto, {
+      language: 'pt-BR',
+      pitch: 0.9,
+      rate: 1.0,
+    });
+  };
 
   return (
-
     <View style={styles.container}>
+      <Image source={filme.imagem} style={styles.imagem} />
 
+      <Text style={styles.titulo}>{filme.nome}</Text>
+      <Text style={styles.informacao}>Ano: {filme.ano}</Text>
+      <Text style={styles.informacao}>Gênero: {filme.genero}</Text>
+      <Text style={styles.sinopse}>{filme.sinopse}</Text>
 
-      <Image
-        source={filme.imagem}
-        style={styles.imagem}
-      />
-
-
-      <Text style={styles.titulo}>
-        {filme.nome}
-      </Text>
-
-
-      <Text style={styles.informacao}>
-        Ano: {filme.ano}
-      </Text>
-
-
-      <Text style={styles.informacao}>
-        Gênero: {filme.genero}
-      </Text>
-
-
-      <Text style={styles.sinopse}>
-        {filme.sinopse}
-      </Text>
-
-
-      {/* Abre o filme no Letterboxd */}
-
-      <TouchableOpacity
-
-        style={styles.botao}
-
-        onPress={() => Linking.openURL(filme.link)}
-
-      >
+      <TouchableOpacity 
+        style={styles.areaBotao} 
+        onPress={lerDetalhes}>
 
         <Text style={styles.textoBotao}>
-          Ver no Letterboxd
+          Ler Detalhes
         </Text>
-
       </TouchableOpacity>
-
-
-      {/* Volta para a tela anterior */}
 
       <TouchableOpacity
-
-        style={styles.botaoVoltar}
-
-        onPress={() => navigation.goBack()}
-
+        style={styles.areaBotao}
+        onPress={() => Speech.stop()}
       >
-
         <Text style={styles.textoBotao}>
-          Voltar
+          Parar Leitura
         </Text>
-
       </TouchableOpacity>
 
+      <TouchableOpacity style={styles.botao} onPress={() => Linking.openURL(filme.link)}>
+        <Text style={styles.textoBotao}>Ver no Letterboxd</Text>
+      </TouchableOpacity>
 
+      <TouchableOpacity style={styles.botaoVoltar} onPress={() => navigation.goBack()}>
+        <Text style={styles.textoBotao}>Voltar</Text>
+      </TouchableOpacity>
     </View>
-
   );
-
 }
 
 
@@ -197,6 +169,17 @@ const styles = StyleSheet.create({
 
     fontSize: 16
 
-  }
+  },
+
+  areaBotao: {
+    backgroundColor: '#ad98dc',
+    width: '100%',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#4c0d80',
+    marginBottom: 15,
+  },
 
 });

@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Home from './Screens/Home';
 import Lista from './Screens/Lista';
 import Detalhes from './Screens/Detalhes';
 import Diretores from './Screens/Diretores';  
+import Info from './Screens/Info';
 
 const Drawer = createDrawerNavigator();
 
@@ -55,6 +57,14 @@ export default function App() {
         options={{ 
           title: 'Diretores',
           drawerLabel: 'Diretores' 
+        }}
+      />
+      <Drawer.Screen
+        name="Info"
+        component={Info}
+        options={{ 
+          title: 'Informações',
+          drawerLabel: 'Informações' 
         }}
       />
     </Drawer.Navigator>
