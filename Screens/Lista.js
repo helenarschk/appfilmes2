@@ -24,7 +24,7 @@ const filmes = [
     id: 3,
     nome: 'Twin Peaks: Fire Walk with Me',
     ano: 1992,
-    genero: 'Terror psicológico/Suspense',
+    genero: 'Terror/Suspense',
     imagem: require('../assets/twinpeaks.png'),
     link: 'https://letterboxd.com/film/twin-peaks-fire-walk-with-me/',
     sinopse: 'O longa funciona como uma prequela da série de TV Twin Peaks, mostrando a investigação do assassinato de Teresa Banks e os sete dias finais da vida de Laura Palmer.',
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   listaContainer: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#e7dcf1'
+    backgroundColor: '#f3ebfb',
   },
 
   conteudoFlatList: {
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   },
 
   listaItem: {
-    backgroundColor: '#d5c1e7',
+    backgroundColor: '#f9f5ff',
     marginRight: 15,
     padding: 15,
     borderRadius: 15,
@@ -115,7 +115,9 @@ const styles = StyleSheet.create({
     height: 360,
     flexDirection: 'column',
     alignItems: 'center',
-    elevation: 3,
+    borderWidth: 1,
+    borderColor: '#d8c8eb',
+    elevation: 2,
   },
 
   listaImagem: {

@@ -19,10 +19,11 @@ function HomeDrawer() {
     <Drawer.Navigator
       initialRouteName="Home"
       screenOptions={{
-        headerStyle: { backgroundColor: '#673ab7' },
+        headerStyle: { backgroundColor: '#5f3a8b' },
         headerTintColor: '#fff',
-        drawerActiveTintColor: '#541db3',
-        drawerInactiveTintColor: '#150335',
+        drawerActiveTintColor: '#5f3a8b',
+        drawerInactiveTintColor: '#2a1d35',
+        drawerStyle: { backgroundColor: '#f5eefb' },
       }}
     >
       <Drawer.Screen
@@ -77,8 +78,15 @@ export default function App() {
 
             return <Ionicons name={icons[route.name]} size={size} color={color} />;
           },
-          tabBarActiveTintColor: '#381e52',
-          tabBarInactiveTintColor: '#a88ec0',
+          tabBarActiveTintColor: '#5f3a8b',
+          tabBarInactiveTintColor: '#9a8ca9',
+          tabBarStyle: {
+            backgroundColor: '#f7f0ff',
+            borderTopWidth: 0,
+            height: 60,
+            paddingBottom: 6,
+            paddingTop: 6,
+          },
         })}
       >
         <Tab.Screen name="Home" component={HomeDrawer} />

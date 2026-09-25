@@ -30,34 +30,43 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
-    backgroundColor: '#e7dcf1',
+    padding: 24,
+    backgroundColor: '#f3ebfb',
   },
 
   titulo: {
     color: '#1f0d31',
     fontSize: 30,
     fontWeight: 'bold',
-    marginBottom: 15,
+    marginBottom: 12,
+    textAlign: 'center',
   },
 
   texto: {
     color: '#381e52',
     fontSize: 16,
     textAlign: 'center',
-    marginBottom: 30,
+    marginBottom: 28,
+    lineHeight: 24,
   },
 
   botao: {
     backgroundColor: '#a88ec0',
-    paddingHorizontal: 30,
-    paddingVertical: 15,
-    borderRadius: 10,
+    paddingHorizontal: 26,
+    paddingVertical: 14,
+    borderRadius: 12,
+    width: '100%',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
+    elevation: 2,
   },
 
   textoBotao: {
-    color: '#381e52',
-    fontSize: 18,
+    color: '#1f0d31',
+    fontSize: 17,
     fontWeight: 'bold',
   },
 });

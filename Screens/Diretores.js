@@ -55,75 +55,39 @@ export default function Diretores() {
 
 const styles = StyleSheet.create({
   container: {
-
-        flex: 1,
-
-        padding: 20,
-
-        backgroundColor: '#e7dcf1'
-
-    },
-
-  conteudoFlatList: {
-
-        paddingHorizontal: 15,
-
-        alignItems: 'center',
-
-        flexGrow: 0,
-
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#f3ebfb',
   },
 
-titulo: {
+  titulo: {
+    color: '#1f0d31',
+    fontSize: 28,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 6,
+  },
 
-        color: '#1f0d31',
-    
-        fontSize: 28,
+  subtitulo: {
+    color: '#381e52',
+    fontSize: 16,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
 
-        fontWeight: 'bold',
-
-        textAlign: 'center',
-
-        marginBottom: 5
-
-    },
-
-    subtitulo: {
-
-        color: '#381e52',
-
-        fontSize: 16,
-
-        textAlign: 'center',
-
-        marginBottom: 20
-
-    },
-
-     item: {
-
-        backgroundColor: '#d5c1e7',
-
-        padding: 20,
-
-        marginBottom: 12,
-
-        borderRadius: 10,
-
-        elevation: 2
-
-    },
-
-
-    nome: {
-
-        fontSize: 19,
-
-        fontWeight: 'bold',
-
-        marginBottom: 5
-
-    },
+  item: {
+    backgroundColor: '#f9f5ff',
+    padding: 18,
+    marginBottom: 12,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#d8c8eb',
+    shadowColor: '#000',
+    shadowOpacity: 0.04,
+    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 1,
+  },
 
   textoForte: {
     fontWeight: 'bold',
