@@ -1,63 +1,96 @@
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 
-export default function Home({ navigation }) {
+export default function Info({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Catálogo de Filmes</Text>
+      <Text style={styles.titulo}>
+        Tema do App
+      </Text>
       <Text style={styles.texto}>
-        Veja alguns filmes disponíveis em nosso catálogo.
+       Este app busca disseminar o cinema, permitindo que os usuários possam explorar uma ampla seleção de filmes, bem como visualizar detalhes e informações sobre cada um deles.
       </Text>
 
       <TouchableOpacity
         style={styles.botao}
-        onPress={() => navigation.navigate('Lista')}
+        onPress={() => navigation.navigate('Home', { screen: 'Lista' })}
       >
         <Text style={styles.textoBotao}>Ver Filmes</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={[styles.botao, { marginTop: 12 }]}
-        onPress={() => navigation.navigate('Diretores')}
-      >
-        <Text style={styles.textoBotao}>Ver Diretores</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+
   container: {
+
     flex: 1,
+
     justifyContent: 'center',
+
     alignItems: 'center',
+
     padding: 20,
-    backgroundColor: '#e7dcf1',
+
+    backgroundColor: '#e7dcf1'
+
   },
+
 
   titulo: {
+
     color: '#1f0d31',
+    
     fontSize: 30,
+
     fontWeight: 'bold',
-    marginBottom: 15,
+
+    marginBottom: 15
+
   },
+
 
   texto: {
+
     color: '#381e52',
+
     fontSize: 16,
+
     textAlign: 'center',
-    marginBottom: 30,
+
+    marginBottom: 30
+
   },
+
+  imagem: {
+    width: 180,
+    height: 180,
+    borderRadius: 90,
+    marginBottom: 20,
+  },
+
 
   botao: {
+
     backgroundColor: '#a88ec0',
+
     paddingHorizontal: 30,
+
     paddingVertical: 15,
-    borderRadius: 10,
+
+    borderRadius: 10
+
   },
 
+
   textoBotao: {
+
     color: '#381e52',
+
     fontSize: 18,
-    fontWeight: 'bold',
-  },
+
+    fontWeight: 'bold'
+
+  }
+
 });

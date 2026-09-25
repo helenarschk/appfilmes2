@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 
 export default function Info({ navigation }) {
@@ -27,7 +26,7 @@ export default function Info({ navigation }) {
 
       <TouchableOpacity
         style={styles.botao}
-        onPress={() => navigation.navigate('Lista')}
+        onPress={() => navigation.navigate('Home', { screen: 'Lista' })}
       >
         <Text style={styles.textoBotao}>Ver Filmes</Text>
       </TouchableOpacity>

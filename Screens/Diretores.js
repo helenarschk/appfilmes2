@@ -29,49 +29,55 @@ const diretores = [
 ]
 
 export default function Diretores() {
-    const criaItem = ({ item }) => (
-        <View style={styles.item}>
-            <Text style={styles.nome}>
-                {item.nome}
-            </Text>
-            <Text style={styles.filme}>
-                {item.filmes}
-            </Text>
-        </View>
-    )
-    return (
-        <View style={styles.container}>
-            <Text style={styles.titulo}>
-                Diretores
-            </Text>
-            <Text style={styles.subtitulo}>
-                alguns dos meus diretores favoritos c:
-            </Text>
-            <FlatList
-                data={diretores}
-                renderItem={criaItem}
-                keyExtractor={item => item.id.toString()}
-                showsverticalScrollIndicator={false}
-            />
-        </View>
-    )
+  const criaItem = ({ item }) => (
+    <View style={styles.item}>
+      <View style={styles.nome}>
+        <Text style={styles.textoForte}>Cód: <Text style={styles.textoNormal}>{item.id}</Text></Text>
+        <Text style={styles.textoForte}>Nome: <Text style={styles.textoNormal}>{item.nome}</Text></Text>
+        <Text style={styles.textoForte}>Filmes: <Text style={styles.textoNormal}>{item.filmes}</Text></Text>
+      </View>
+    </View>
+  );
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titulo}>Diretores</Text>
+      <Text style={styles.subtitulo}>Alguns dos meus diretores favoritos :)</Text>
+      <FlatList
+        data={diretores}
+        renderItem={criaItem}
+        keyExtractor={(item) => item.id.toString()}
+        showsVerticalScrollIndicator={false}
+      />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-
-    container: {
+  container: {
 
         flex: 1,
 
         padding: 20,
 
-        backgroundColor: '#f5f5f5'
+        backgroundColor: '#e7dcf1'
 
     },
 
+  conteudoFlatList: {
 
-    titulo: {
+        paddingHorizontal: 15,
 
+        alignItems: 'center',
+
+        flexGrow: 0,
+
+  },
+
+titulo: {
+
+        color: '#1f0d31',
+    
         fontSize: 28,
 
         fontWeight: 'bold',
@@ -82,23 +88,21 @@ const styles = StyleSheet.create({
 
     },
 
-
     subtitulo: {
+
+        color: '#381e52',
 
         fontSize: 16,
 
         textAlign: 'center',
 
-        color: '#555',
-
         marginBottom: 20
 
     },
 
+     item: {
 
-    item: {
-
-        backgroundColor: '#d8e4ed',
+        backgroundColor: '#d5c1e7',
 
         padding: 20,
 
@@ -121,13 +125,15 @@ const styles = StyleSheet.create({
 
     },
 
+  textoForte: {
+    fontWeight: 'bold',
+    fontSize: 14,
+    color: '#1f0d31',
+    marginBottom: 2,
+  },
 
-    filme: {
-
-        fontSize: 15,
-
-        color: '#444'
-
-    }
-
+  textoNormal: {
+    fontWeight: 'normal',
+    color: '#381e52',
+  },
 });

@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Linking, Button } from 'react-native';
 import * as Speech from 'expo-speech';
 

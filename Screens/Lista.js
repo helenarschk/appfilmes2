@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
   listaContainer: {
     flex: 1,
     justifyContent: 'center',
+    backgroundColor: '#e7dcf1'
   },
 
   conteudoFlatList: {
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
   },
 
   listaItem: {
-    backgroundColor: '#e7dcf1',
+    backgroundColor: '#d5c1e7',
     marginRight: 15,
     padding: 15,
     borderRadius: 15,
